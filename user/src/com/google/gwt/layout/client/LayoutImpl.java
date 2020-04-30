@@ -50,13 +50,14 @@ class LayoutImpl {
 
   protected static DivElement createRuler(Unit widthUnit, Unit heightUnit) {
     DivElement ruler = Document.get().createDivElement();
-    ruler.setInnerHTML("&nbsp;");
+    ruler.setInnerText("\u00A0"); // ruler.setInnerHTML("&nbsp;");
     Style style = ruler.getStyle();
     style.setPosition(Position.ABSOLUTE);
     style.setZIndex(-32767);
 
     // Position the ruler off the top edge, double the size just to be
     // extra sure it doesn't show up on the screen.
+    style.setLeft(-20, widthUnit);
     style.setTop(-20, heightUnit);
 
     // Note that we are making the ruler element 10x10, because some browsers

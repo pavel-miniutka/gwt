@@ -66,8 +66,8 @@ public class RpcRequestBuilder {
    * @return <code>this</code>
    * @see ServiceDefTarget#setServiceEntryPoint(String)
    */
-  public final RpcRequestBuilder create(String serviceEntryPoint) {
-    builder = doCreate(serviceEntryPoint);
+  public final RpcRequestBuilder create(String requestData, String serviceEntryPoint) {
+    builder = doCreate(requestData, serviceEntryPoint);
     assert builder != null : "doCreate failed to return a RequestBuilder";
     return this;
   }
@@ -150,7 +150,7 @@ public class RpcRequestBuilder {
    * @return the RequestBuilder that should be ultimately passed to the
    *         RpcRequestBuilder's caller.
    */
-  protected RequestBuilder doCreate(String serviceEntryPoint) {
+  protected RequestBuilder doCreate(String requestData, String serviceEntryPoint) {
     return new RequestBuilder(RequestBuilder.POST, serviceEntryPoint);
   }
 

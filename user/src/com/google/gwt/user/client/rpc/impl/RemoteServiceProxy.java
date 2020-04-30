@@ -435,7 +435,7 @@ public abstract class RemoteServiceProxy implements SerializationStreamFactory,
 
     ensureRpcRequestBuilder();
 
-    rpcRequestBuilder.create(getServiceEntryPoint());
+    rpcRequestBuilder.create(requestData, getServiceEntryPoint());
     rpcRequestBuilder.setCallback(responseHandler);
     rpcRequestBuilder.setContentType(RPC_CONTENT_TYPE);
     rpcRequestBuilder.setRequestData(requestData);
